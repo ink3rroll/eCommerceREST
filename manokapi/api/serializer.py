@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Order
+from .models import User, Order, CartItem
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -16,3 +16,9 @@ class OrderSerializer(serializers.ModelSerializer):
         order_instance = Order(**attrs)
         order_instance.clean()
         return attrs
+    
+
+class CartItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CartItem
+        fields = '__all__'
